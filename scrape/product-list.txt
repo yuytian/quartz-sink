@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 69, in <module>
+    print(f'[{r["code"]}_{r["id"]}] {r["name"]} | Model: {r["model"]}')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\ufffd' in position 8: illegal multibyte sequence

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n-attr="content:meta.desc" content="沐辰（MOOSUN）洁具有限公司——湖北最大石英石厨卫工厂，主营石英石洗手盆、厨房水槽、洗衣槽、全铝橱柜。年产100万套+，CE/FDA/cUPC/ISO认证，远销欧美30+国家。">
+  <title data-i18n="meta.title">沐辰 MOOSUN | 石英石洗手盆·厨房水槽·洗衣槽制造商</title>
+
+  <!-- Google Fonts preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS Custom Properties — Design Tokens
+       ======================================== */
+    :root {
+      /* Color Tokens */
+      --color-primary: #171717;
+      --color-primary-soft: #2A2A2A;
+      --color-secondary: #525252;
+      --color-accent: #A16207;
+      --color-accent-light: #CA8A04;
+      --color-accent-soft: #FEF3C7;
+
+      --color-bg: #FAFAFA;
+      --color-bg-warm: #FAF5F2;
+      --color-surface: #FFFFFF;
+      --color-surface-muted: #F5F0EB;
+      --color-border: #E8E4E0;
+      --color-border-strong: #D6D3D1;
+
+      --color-text-primary: #171717;
+      --color-text-secondary: #525252;
+      --color-text-muted: #8C8C8C;
+      --color-text-inverse: #FFFFFF;
+
+      --color-success: #059669;
+      --color-error: #DC2626;
+
+      /* Typography */
+      --font-heading: 'Noto Sans SC', 'Inter', system-ui, -apple-system, sans-serif;
+      --font-body: 'Noto Sans SC', 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'SF Mono', 'JetBrains Mono', 'Consolas', monospace;
+
+      /* Type Scale */
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+      --text-5xl: 3rem;
+      --text-6xl: 3.75rem;
+
+      /* Spacing — 8px grid */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+
+      --container-max: 1280px;
+      --container-padding: var(--space-6);
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-2xl: 24px;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.04);
+
+      --transition-fast: 150ms ease-out;
+      --transition-base: 250ms ease-out;
+      --transition-slow: 350ms ease-out;
+
+      --z-base: 0;
+      --z-dropdown: 10;
+      --z-sticky: 20;
+      --z-overlay: 40;
+      --z-modal: 100;
+      --z-toast: 1000;
+    }
+
+    /* ========================================
+       Reset & Base
+       ======================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: var(--font-body); font-size: var(--text-base); font-weight: 400; line-height: 1.75; color: var(--color-text-primary); background-color: var(--color-bg); overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button, select { font-family: inherit; cursor: pointer; }
+    button { border: none; background: none; }
+    :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; border-radius: var(--radius-sm); }
+    ::selection { background-color: var(--color-accent); color: var(--color-text-inverse); }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; }
+    .section-label { display: inline-block; font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-4); }
+    .section-title { font-size: var(--text-4xl); font-weight: 700; letter-spacing: -0.03em; color: var(--color-primary); margin-bottom: var(--space-4); }
+    .section-desc { font-size: var(--text-lg); color: var(--color-secondary); max-width: 640px; line-height: 1.7; }
+    @media (min-width: 768px) { .section-title { font-size: var(--text-5xl); } }
+
+    /* Layout */
+    .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); }
+    .section { padding: var(--space-20) 0; }
+    @media (min-width: 768px) { .section { padding: var(--space-32) 0; } :root { --container-padding: var(--space-10); } }
+
+    /* ========================================
+       Navigation
+       ======================================== */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-sticky); background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--color-border); transition: box-shadow var(--transition-base); }
+    .nav.scrolled { box-shadow: var(--shadow-md); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); }
+    .nav-left { display: flex; align-items: center; gap: var(--space-6); }
+    .nav-logo { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-heading); font-size: var(--text-xl); font-weight: 700; color: var(--color-primary); letter-spacing: -0.02em; white-space: nowrap; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--color-primary); color: var(--color-text-inverse); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); }
+    .nav-links { display: none; align-items: center; gap: var(--space-6); }
+    .nav-link { font-size: var(--text-sm); font-weight: 500; color: var(--color-secondary); transition: color var(--transition-fast); position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--color-primary); }
+    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--color-accent); transition: width var(--transition-base); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-actions { display: flex; align-items: center; gap: var(--space-3); }
+    .nav-cta { display: none; padding: 10px 20px; font-size: var(--text-sm); font-weight: 600; color: var(--color-text-inverse); background: var(--color-primary); border-radius: var(--radius-md); transition: all var(--transition-fast); white-space: nowrap; }
+    .nav-cta:hover { background: var(--color-primary-soft); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+    /* Language Switcher */
+    .lang-switcher { position: relative; display: flex; align-items: center; }
+    .lang-switcher select { appearance: none; -webkit-appearance: none; background: transparent; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 8px 32px 8px 12px; font-size: var(--text-sm); font-weight: 500; color: var(--color-secondary); cursor: pointer; min-height: 44px; transition: border-color var(--transition-fast); }
+    .lang-switcher select:hover { border-color: var(--color-border-strong); color: var(--color-primary); }
+    .lang-switcher select:focus-visible { border-color: var(--color-accent); outline: none; }
+    .lang-switcher-arrow { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none; width: 16px; height: 16px; color: var(--color-secondary); }
+
+    /* Mobile menu */
+    .nav-menu-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-md); transition: background var(--transition-fast); }
+    .nav-menu-btn:hover { background: var(--color-surface-muted); }
+    .nav-menu-btn svg { width: 24px; height: 24px; }
+    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; z-index: var(--z-overlay); background: var(--color-surface); padding: var(--space-6); flex-direction: column; overflow-y: auto; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu-link { display: block; padding: var(--space-4); font-size: var(--text-lg); font-weight: 500; color: var(--color-primary); border-radius: var(--radius-md); transition: background var(--transition-fast); }
+    .mobile-menu-link:hover { background: var(--color-surface-muted); }
+    .mobile-menu-lang { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); margin-top: var(--space-4); border-top: 1px solid var(--color-border); }
+    .mobile-menu-lang label { font-size: var(--text-sm); color: var(--color-text-muted); white-space: nowrap; }
+    .mobile-menu-lang select { flex: 1; padding: 10px 12px; font-size: var(--text-base); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg); color: var(--color-primary); min-height: 44px; }
+    .mobile-menu-cta { display: block; margin-top: var(--space-6); padding: var(--space-4); text-align: center; font-weight: 600; color: var(--color-text-inverse); background: var(--color-primary); border-radius: var(--radius-md); }
+    @media (min-width: 1024px) { .nav-links { display: flex; } .nav-cta { display: block; } .nav-menu-btn { display: none; } }
+
+    /* ========================================
+       Hero Section
+       ======================================== */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; background: var(--color-bg-warm); overflow: hidden; padding-top: 64px; }
+    .hero-bg-pattern { position: absolute; inset: 0; opacity: 0.06; background-image: radial-gradient(circle at 20% 80%, var(--color-accent) 1px, transparent 1px), radial-gradient(circle at 80% 20%, var(--color-primary) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .hero-inner { display: grid; grid-template-columns: 1fr; gap: var(--space-16); align-items: center; width: 100%; max-width: var(--container-max); margin: 0 auto; padding: var(--space-10) var(--container-padding); }
+    .hero-content { max-width: 600px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: var(--space-2); padding: 6px 16px; font-size: var(--text-sm); font-weight: 500; color: var(--color-accent); background: var(--color-accent-soft); border-radius: 9999px; margin-bottom: var(--space-6); }
+    .hero-badge-dot { width: 8px; height: 8px; background: var(--color-accent); border-radius: 50%; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.3); } }
+    .hero-title { font-size: var(--text-4xl); font-weight: 700; line-height: 1.15; letter-spacing: -0.04em; color: var(--color-primary); margin-bottom: var(--space-6); }
+    .hero-title-accent { color: var(--color-accent); position: relative; }
+    .hero-desc { font-size: var(--text-lg); color: var(--color-secondary); line-height: 1.7; margin-bottom: var(--space-8); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); padding: 14px 28px; font-size: var(--text-base); font-weight: 600; border-radius: var(--radius-md); transition: all var(--transition-fast); min-height: 48px; white-space: nowrap; }
+    .btn-primary { color: var(--color-text-inverse); background: var(--color-primary); box-shadow: var(--shadow-md); }
+    .btn-primary:hover { background: var(--color-primary-soft); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+    .btn-outline { color: var(--color-primary); border: 2px solid var(--color-border-strong); background: transparent; }
+    .btn-outline:hover { border-color: var(--color-primary); background: var(--color-surface-muted); }
+    .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+    .hero-product-card { position: relative; width: 100%; max-width: 480px; aspect-ratio: 4/3; background: var(--color-surface); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .hero-product-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #f5f0eb 0%, #e8e0d8 30%, #ddd5cb 60%, #f0ebe4 100%); }
+    .hero-product-shape { position: relative; z-index: 1; width: 70%; aspect-ratio: 1.2/1; background: linear-gradient(180deg, #ffffff 0%, #f8f5f2 40%, #e8e0d5 100%); border-radius: 40% 40% 50% 50% / 30% 30% 60% 60%; box-shadow: inset 0 2px 20px rgba(255,255,255,0.8), 0 20px 40px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.08); }
+    .hero-product-shape::after { content: ''; position: absolute; top: 12%; left: 15%; width: 70%; height: 55%; background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%); border-radius: 45% 45% 50% 50% / 40% 40% 50% 50%; }
+    .hero-stats { display: flex; gap: var(--space-10); margin-top: var(--space-10); padding-top: var(--space-8); border-top: 1px solid var(--color-border); }
+    .hero-stat-value { font-size: var(--text-3xl); font-weight: 700; color: var(--color-primary); line-height: 1.1; }
+    .hero-stat-label { font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-1); }
+    @media (min-width: 768px) { .hero-title { font-size: var(--text-6xl); } }
+    @media (min-width: 1024px) { .hero-inner { grid-template-columns: 1fr 1fr; } }
+
+    /* ========================================
+       Products Section
+       ======================================== */
+    .products { background: var(--color-surface); }
+    .products-header { text-align: center; margin-bottom: var(--space-16); }
+    .products-header .section-desc { margin: 0 auto; }
+    .product-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
+    .product-card { background: var(--color-bg); border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--color-border); transition: all var(--transition-base); cursor: pointer; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--color-border-strong); }
+    .product-card-image { position: relative; aspect-ratio: 4/3; background: linear-gradient(135deg, #f5f0eb, #e8e0d8); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .product-card-sink { width: 65%; aspect-ratio: 1.2/1; border-radius: 38% 38% 48% 48% / 28% 28% 58% 58%; background: linear-gradient(180deg, #ffffff 0%, #f5f2ee 35%, #e5ddd3 100%); box-shadow: inset 0 2px 16px rgba(255,255,255,0.7), 0 12px 28px rgba(0,0,0,0.13); }
+    .product-card-tag { position: absolute; top: var(--space-4); left: var(--space-4); padding: 4px 12px; font-size: var(--text-xs); font-weight: 600; color: var(--color-accent); background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 9999px; }
+    .product-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+    .product-card:hover .product-card-image img { transform: scale(1.05); }
+    .product-card-body { padding: var(--space-6); }
+    .product-card-name { font-size: var(--text-lg); font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-1); }
+    .product-card-model { font-size: var(--text-xs); font-weight: 500; color: var(--color-accent); margin-bottom: var(--space-2); font-family: var(--font-mono); letter-spacing: 0.03em; }
+    .product-card-desc { color: var(--color-secondary); font-size: var(--text-sm); }
+    .product-card-specs { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-4); }
+    .product-card-spec { display: flex; align-items: center; gap: var(--space-1_5); font-size: var(--text-sm); color: var(--color-secondary); }
+    .product-card-spec svg { width: 16px; height: 16px; color: var(--color-accent); flex-shrink: 0; }
+    @media (min-width: 640px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    /* ========================================
+       Factory Section
+       ======================================== */
+    .factory { background: var(--color-bg-warm); }
+    .factory-inner { display: grid; grid-template-columns: 1fr; gap: var(--space-16); align-items: center; }
+    .factory-content .section-title { margin-bottom: var(--space-6); }
+    .factory-desc { color: var(--color-secondary); line-height: 1.8; margin-bottom: var(--space-6); }
+    .factory-features { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-8); }
+    .factory-feature { display: flex; gap: var(--space-4); padding: var(--space-4); background: var(--color-surface); border-radius: var(--radius-lg); border: 1px solid var(--color-border); transition: box-shadow var(--transition-fast); }
+    .factory-feature:hover { box-shadow: var(--shadow-md); }
+    .factory-feature-icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--color-accent-soft); border-radius: var(--radius-md); color: var(--color-accent); }
+    .factory-feature-icon svg { width: 24px; height: 24px; }
+    .factory-feature-text h4 { font-size: var(--text-base); font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-1); }
+    .factory-feature-text p { font-size: var(--text-sm); color: var(--color-secondary); line-height: 1.6; }
+    .factory-visual { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    .factory-img-card { background: var(--color-surface); border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 3/4; }
+    .factory-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-3); color: var(--color-text-muted); font-size: var(--text-sm); }
+    .factory-img-placeholder svg { width: 48px; height: 48px; opacity: 0.4; }
+    .factory-img-card:nth-child(1) .factory-img-placeholder { background: linear-gradient(180deg, #e8e0d5 0%, #ddd5c8 100%); }
+    .factory-img-card:nth-child(2) .factory-img-placeholder { background: linear-gradient(180deg, #d5c8b5 0%, #c8bda8 100%); }
+    .factory-img-card:nth-child(3) .factory-img-placeholder { background: linear-gradient(180deg, #ddd5c8 0%, #d0c8b8 100%); }
+    .factory-img-card:nth-child(4) .factory-img-placeholder { background: linear-gradient(180deg, #c8bda8 0%, #bdb09a 100%); }
+    .factory-img-card:nth-child(1) { grid-row: span 2; aspect-ratio: auto; }
+    @media (min-width: 640px) { .factory-features { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .factory-inner { grid-template-columns: 1fr 1fr; } }
+
+    /* ========================================
+       Stats Section
+       ======================================== */
+    .stats { background: var(--color-primary); color: var(--color-text-inverse); }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8); text-align: center; }
+    .stat-item { padding: var(--space-6); }
+    .stat-number { font-family: var(--font-heading); font-size: var(--text-5xl); font-weight: 700; line-height: 1; color: var(--color-accent-light); margin-bottom: var(--space-2); }
+    .stat-label { font-size: var(--text-base); color: rgba(255,255,255,0.7); }
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } .stat-number { font-size: var(--text-6xl); } }
+
+    /* ========================================
+       Process / Certs / CTA / Footer
+       ======================================== */
+    .process { background: var(--color-surface); }
+    .process-header { text-align: center; margin-bottom: var(--space-16); }
+    .process-header .section-desc { margin: 0 auto; }
+    .process-timeline { display: grid; grid-template-columns: 1fr; gap: var(--space-8); max-width: 960px; margin: 0 auto; }
+    .process-step { display: flex; gap: var(--space-6); padding: var(--space-8); background: var(--color-bg); border-radius: var(--radius-xl); border: 1px solid var(--color-border); transition: all var(--transition-base); }
+    .process-step:hover { box-shadow: var(--shadow-lg); border-color: var(--color-border-strong); }
+    .process-step-number { width: 56px; height: 56px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: 700; color: var(--color-accent); background: var(--color-accent-soft); border-radius: var(--radius-lg); }
+    .process-step-content h3 { font-size: var(--text-xl); font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-2); }
+    .process-step-content p { font-size: var(--text-base); color: var(--color-secondary); line-height: 1.7; }
+    @media (min-width: 768px) { .process-timeline { grid-template-columns: repeat(2, 1fr); } }
+
+    .certs { background: var(--color-bg-warm); }
+    .certs-header { text-align: center; margin-bottom: var(--space-16); }
+    .certs-header .section-desc { margin: 0 auto; }
+    .certs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); max-width: 800px; margin: 0 auto; }
+    .cert-card { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-lg); border: 1px solid var(--color-border); transition: box-shadow var(--transition-fast); }
+    .cert-card:hover { box-shadow: var(--shadow-md); }
+    .cert-icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--color-primary); color: var(--color-text-inverse); border-radius: var(--radius-md); font-weight: 700; font-size: var(--text-base); }
+    .cert-info h4 { font-size: var(--text-base); font-weight: 600; color: var(--color-primary); }
+    .cert-info p { font-size: var(--text-sm); color: var(--color-text-muted); }
+    @media (min-width: 768px) { .certs-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .cta { background: var(--color-surface); text-align: center; }
+    .cta-inner { max-width: 640px; margin: 0 auto; padding: var(--space-16); background: var(--color-bg-warm); border-radius: var(--radius-2xl); border: 1px solid var(--color-border); }
+    .cta-title { font-size: var(--text-3xl); font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-4); }
+    .cta-desc { font-size: var(--text-lg); color: var(--color-secondary); margin-bottom: var(--space-8); }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; }
+    .cta-contact-info { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-8); margin-top: var(--space-10); padding-top: var(--space-8); border-top: 1px solid var(--color-border); }
+    .cta-contact-item { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-secondary); }
+    .cta-contact-item svg { width: 18px; height: 18px; color: var(--color-accent); }
+    @media (min-width: 768px) { .cta-title { font-size: var(--text-4xl); } }
+
+    .footer { background: var(--color-primary); color: var(--color-text-inverse); padding: var(--space-16) 0 var(--space-8); }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-10); margin-bottom: var(--space-12); }
+    .footer-brand p { margin-top: var(--space-4); font-size: var(--text-sm); color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 320px; }
+    .footer-links h4 { font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-4); color: var(--color-text-inverse); }
+    .footer-links a { display: block; font-size: var(--text-sm); color: rgba(255,255,255,0.6); padding: var(--space-1) 0; transition: color var(--transition-fast); }
+    .footer-links a:hover { color: var(--color-accent-light); }
+    .footer-bottom { padding-top: var(--space-8); border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-4); font-size: var(--text-sm); color: rgba(255,255,255,0.5); }
+    @media (min-width: 640px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+    /* ========================================
+       Scroll Animation
+       ======================================== */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 80ms; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 160ms; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 240ms; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 320ms; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 400ms; }
+    .reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+    /* ========================================
+       RTL Support — Arabic
+       ======================================== */
+    [dir="rtl"] { --font-heading: 'Noto Sans Arabic', 'Noto Sans SC', 'Inter', system-ui, sans-serif; --font-body: 'Noto Sans Arabic', 'Noto Sans SC', 'Inter', system-ui, sans-serif; }
+    [dir="rtl"] .section-label { text-transform: none; letter-spacing: 0; }
+    [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 { letter-spacing: 0; }
+    [dir="rtl"] .nav-link::after { left: auto; right: 0; }
+    [dir="rtl"] .product-card-tag { left: auto; right: var(--space-4); }
+    [dir="rtl"] .process-step { text-align: right; }
+    [dir="rtl"] .lang-switcher select { padding: 8px 12px 8px 32px; }
+    [dir="rtl"] .lang-switcher-arrow { right: auto; left: 8px; }
+    [dir="rtl"] body { text-align: right; }
+    [dir="rtl"] .hero-content, [dir="rtl"] .factory-content { text-align: right; }
+    [dir="rtl"] .section-desc { margin-left: auto; margin-right: 0; }
+    [dir="rtl"] .products-header .section-desc, [dir="rtl"] .process-header .section-desc, [dir="rtl"] .certs-header .section-desc { margin-left: auto; margin-right: auto; }
+    @media (min-width: 1024px) { [dir="rtl"] .hero-inner { direction: rtl; } [dir="rtl"] .hero-content { direction: rtl; } }
+    [dir="rtl"] .process-step-number { order: 2; }
+    [dir="rtl"] .process-step-content { order: 1; }
+    [dir="rtl"] .footer-brand p { text-align: right; }
+
+    /* ========================================
+       Reduced Motion & Print
+       ======================================== */
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } .reveal, .reveal-stagger > * { opacity: 1; transform: none; transition: none; } }
+    @media print { .nav, .mobile-menu, .cta, .footer { display: none; } body { font-size: 12pt; } }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       Navigation
+       ======================================== -->
+  <nav class="nav" id="navbar" role="navigation" data-i18n-attr="aria-label:nav.arialabel">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="#" class="nav-logo" data-i18n-attr="aria-label:nav.logoAria">
+          <span class="nav-logo-icon" data-i18n="common.brandShort">沐辰</span>
+          <span data-i18n="common.brand">沐辰 MOOSUN</span>
+        </a>
+      </div>
+
+      <div class="nav-links" role="menubar">
+        <a href="#products" class="nav-link" role="menuitem" data-i18n="nav.products">产品中心</a>
+        <a href="#factory" class="nav-link" role="menuitem" data-i18n="nav.factory">工厂实力</a>
+        <a href="#process" class="nav-link" role="menuitem" data-i18n="nav.process">工艺制程</a>
+        <a href="#certs" class="nav-link" role="menuitem" data-i18n="nav.certs">资质认证</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="#cta" class="nav-cta" data-i18n="nav.cta">获取报价</a>
+        <div class="lang-switcher">
+          <select id="langSwitcher" data-i18n-attr="aria-label:nav.langLabel" aria-label="语言">
+            <option value="zh-CN">简中</option>
+            <option value="en">EN</option>
+            <option value="zh-TW">繁中</option>
+            <option value="ms">BM</option>
+            <option value="ar">العربية</option>
+          </select>
+          <svg class="lang-switcher-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <button class="nav-menu-btn" id="menuBtn" data-i18n-attr="aria-label:nav.menuOpen" aria-label="打开菜单" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+    <a href="#products" class="mobile-menu-link" role="menuitem" data-i18n="nav.products">产品中心</a>
+    <a href="#factory" class="mobile-menu-link" role="menuitem" data-i18n="nav.factory">工厂实力</a>
+    <a href="#process" class="mobile-menu-link" role="menuitem" data-i18n="nav.process">工艺制程</a>
+    <a href="#certs" class="mobile-menu-link" role="menuitem" data-i18n="nav.certs">资质认证</a>
+    <div class="mobile-menu-lang">
+      <label data-i18n="nav.langLabel">语言</label>
+      <select id="langSwitcherMobile" aria-label="语言">
+        <option value="zh-CN">简中</option>
+        <option value="en">EN</option>
+        <option value="zh-TW">繁中</option>
+        <option value="ms">BM</option>
+        <option value="ar">العربية</option>
+      </select>
+    </div>
+    <a href="#cta" class="mobile-menu-cta" data-i18n="nav.cta">获取报价</a>
+  </div>
+
+  <!-- ========================================
+       Hero Section
+       ======================================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content reveal">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          <span data-i18n="hero.badge">年产100万套+ · 51项专利技术</span>
+        </div>
+        <h1 id="hero-title" class="hero-title">
+          <span data-i18n="hero.title1">石英石厨卫</span><br>
+          <span class="hero-title-accent" data-i18n="hero.title2">源头制造商</span>
+        </h1>
+        <p class="hero-desc" data-i18n="hero.desc">
+          沐辰（MOOSUN）洁具有限公司位于湖北黄梅小池临港产业园，占地166亩、厂房12万㎡，是小池本地最大的石英石厨卫工厂。主营石英石洗手盆、厨房水槽、洗衣槽、全铝橱柜，产品通过CE、FDA、cUPC、ISO认证，远销欧美30多个国家和地区。
+        </p>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">
+            <span data-i18n="hero.btnProducts">浏览产品</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#factory" class="btn btn-outline" data-i18n="hero.btnFactory">了解工厂</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-value">8+</div>
+            <div class="hero-stat-label" data-i18n="hero.statYears">年深耕行业</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">166<span style="font-size:0.6em;">亩</span></div>
+            <div class="hero-stat-label" data-i18n="hero.statArea">现代化厂房</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">100<span style="font-size:0.6em;">万+</span></div>
+            <div class="hero-stat-label" data-i18n="hero.statProducts">年产能（套）</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="hero-product-card">
+          <img src="images/products/202208241419337592.jpg" alt="沐辰石英石一体盆 ONDW 7648" width="600" height="450" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Products Section
+       ======================================== -->
+  <section class="products section" id="products" aria-labelledby="products-title">
+    <div class="container">
+      <div class="products-header reveal">
+        <span class="section-label" data-i18n="products.label">核心产品</span>
+        <h2 id="products-title" class="section-title" data-i18n="products.title">石英石厨卫产品系列</h2>
+        <p class="section-desc" data-i18n="products.desc">
+          选用80-92%高纯度石英砂与食品级树脂，高温高压一体成型。莫氏硬度6-7级，不渗色、不开裂、一体无缝，历久弥新。
+        </p>
+      </div>
+
+      <div class="product-grid reveal-stagger">
+        <!-- Product 1: Integrated Basin — Model AMS 3018 -->
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241405393337.jpg" alt="Quartz Integrated Basin AMS 3018" loading="lazy" width="600" height="450">
+            <span class="product-card-tag" data-i18n="products.p1.tag">核心产品</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-card-name" data-i18n="products.p1.name">石英石一体盆</h3>
+            <p class="product-card-model">Model: AMS 3018</p>
+            <p class="product-card-desc" data-i18n="products.p1.desc">台面与水盆无缝一体成型，无拼接缝隙，美观且易于清洁。支持尺寸、颜色全面定制，适配各类浴室柜。</p>
+            <div class="product-card-specs">
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg><span data-i18n="products.p1.spec1">支持全尺寸定制</span></span>
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="products.p1.spec2">莫氏硬度 6-7 级</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2: Undermount — Model POLZ 8647 -->
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241148022732.jpg" alt="Quartz Undermount Sink POLZ 8647" loading="lazy" width="600" height="450">
+            <span class="product-card-tag" data-i18n="products.p2.tag">经典款</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-card-name" data-i18n="products.p2.name">石英石台下盆</h3>
+            <p class="product-card-model">Model: POLZ 8647</p>
+            <p class="product-card-desc" data-i18n="products.p2.desc">台下安装，台面整洁一体，清洁无死角。广泛适用于家庭浴室、酒店工程及商业空间。</p>
+            <div class="product-card-specs">
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg><span data-i18n="products.p2.spec1">多种规格可选</span></span>
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-i18n="products.p2.spec2">耐高温 300°C</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3: Kitchen Sink — Model SS 8045 -->
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301347429572.jpg" alt="Quartz Kitchen Sink" loading="lazy" width="600" height="450">
+            <span class="product-card-tag" data-i18n="products.p3.tag">热销款</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-card-name" data-i18n="products.p3.name">石英石厨房水槽</h3>
+            <p class="product-card-model">Model: SS 8045</p>
+            <p class="product-card-desc" data-i18n="products.p3.desc">高硬度石英石材质，耐刮擦、抗冲击。单槽/双槽多款设计，满足现代厨房需求。</p>
+            <div class="product-card-specs">
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg><span data-i18n="products.p3.spec1">多尺寸多色可选</span></span>
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="products.p3.spec2">不渗色不挂油</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 4: Laundry Sink — Model XPC 1465 -->
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301454459879.jpg" alt="Quartz Laundry Sink XPC 1465" loading="lazy" width="600" height="450">
+            <span class="product-card-tag" data-i18n="products.p4.tag">实用款</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-card-name" data-i18n="products.p4.name">石英石洗衣槽</h3>
+            <p class="product-card-model">Model: XPC 1465</p>
+            <p class="product-card-desc" data-i18n="products.p4.desc">大容量深槽设计，坚固耐用。适合阳台、洗衣房等场景，实用与美观兼具。</p>
+            <div class="product-card-specs">
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg><span data-i18n="products.p4.spec1">支持尺寸定制</span></span>
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-i18n="products.p4.spec2">一体无缝成型</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 5: Bathroom Vanity — Model ONDW 7648 -->
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241419242566.jpg" alt="Bathroom Vanity Set ONDW 7648" loading="lazy" width="600" height="450">
+            <span class="product-card-tag" data-i18n="products.p5.tag">组合款</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-card-name" data-i18n="products.p5.name">浴室柜组合套装</h3>
+            <p class="product-card-model">Model: ONDW 7648</p>
+            <p class="product-card-desc" data-i18n="products.p5.desc">石英石台盆搭配全铝浴室柜，防潮防锈，现代简约风格。提供多种配色方案，满足不同装修风格。</p>
+            <div class="product-card-specs">
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg><span data-i18n="products.p5.spec1">多种风格可选</span></span>
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-i18n="products.p5.spec2">全铝柜体防潮</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 6: Aluminum Cabinet — Model HAN 1265 -->
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301351023354.jpg" alt="All-Aluminum Cabinet HAN 1265" loading="lazy" width="600" height="450">
+            <span class="product-card-tag" data-i18n="products.p6.tag">环保款</span>
+          </div>
+          <div class="product-card-body">
+            <h3 class="product-card-name" data-i18n="products.p6.name">全铝橱柜系列</h3>
+            <p class="product-card-model">Model: HAN 1265</p>
+            <p class="product-card-desc" data-i18n="products.p6.desc">全铝合金柜体，零甲醛、防水防潮、防火耐用。搭配石英石台面，打造健康厨房空间。</p>
+            <div class="product-card-specs">
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg><span data-i18n="products.p6.spec1">支持定制设计</span></span>
+              <span class="product-card-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="products.p6.spec2">零甲醛·防水防火</span></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Factory Introduction
+       ======================================== -->
+  <section class="factory section" id="factory" aria-labelledby="factory-title">
+    <div class="container">
+      <div class="factory-inner">
+        <div class="factory-content reveal">
+          <span class="section-label" data-i18n="factory.label">工厂实力</span>
+          <h2 id="factory-title" class="section-title" data-i18n="factory.title">湖北最大石英石厨卫制造基地</h2>
+          <p class="factory-desc" data-i18n="factory.desc1">沐辰洁具位于湖北省黄梅县小池镇吴楚大道临港工业区4888号（临港产业园内），成立于2017年，占地166亩，拥有12万㎡标准化厂房，是小池本地规模最大的石英石厨卫产品制造企业。</p>
+          <p class="factory-desc" data-i18n="factory.desc2">工厂配备意大利CNC数控加工中心、全自动抛光流水线、恒温恒湿固化车间，年产石英石洗手盆、厨房水槽、洗衣槽等产品超100万套。支持OEM/ODM定制，灵活满足国内外不同市场需求。自主研发的PMMA超级人造花岗石技术，打破德国技术垄断，已获51项国家专利。</p>
+
+          <div class="factory-features reveal">
+            <div class="factory-feature">
+              <div class="factory-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+              <div class="factory-feature-text"><h4 data-i18n="factory.f1.title">自主专利技术</h4><p data-i18n="factory.f1.desc">51项国家专利，自主研发PMMA超级人造花岗石，打破德国技术垄断。</p></div>
+            </div>
+            <div class="factory-feature">
+              <div class="factory-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="factory-feature-text"><h4 data-i18n="factory.f2.title">智能产线</h4><p data-i18n="factory.f2.desc">意大利CNC加工中心 + 自动化抛光流水线，年产100万套+。</p></div>
+            </div>
+            <div class="factory-feature">
+              <div class="factory-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+              <div class="factory-feature-text"><h4 data-i18n="factory.f3.title">严苛质检</h4><p data-i18n="factory.f3.desc">每件产品通过耐高温、抗冲击、防渗透等12道质量检测工序。</p></div>
+            </div>
+            <div class="factory-feature">
+              <div class="factory-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+              <div class="factory-feature-text"><h4 data-i18n="factory.f4.title">柔性定制</h4><p data-i18n="factory.f4.desc">支持OEM/ODM，从颜色、尺寸到造型全面定制，满足全球市场需求。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="factory-visual reveal" aria-hidden="true">
+          <div class="factory-img-card"><div class="factory-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span data-i18n="factory.img1">CNC 加工中心</span></div></div>
+          <div class="factory-img-card"><div class="factory-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg><span data-i18n="factory.img2">研发实验室</span></div></div>
+          <div class="factory-img-card"><div class="factory-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-i18n="factory.img3">原料仓库</span></div></div>
+          <div class="factory-img-card"><div class="factory-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-i18n="factory.img4">质检中心</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Stats Section
+       ======================================== -->
+  <section class="stats section" data-i18n-attr="aria-label:stats.ariaLabel" aria-label="工厂数据">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item"><div class="stat-number">166<span style="font-size:0.5em;">亩</span></div><div class="stat-label" data-i18n="stats.s1.label">工厂占地</div></div>
+        <div class="stat-item"><div class="stat-number">12<span style="font-size:0.5em;">万㎡</span></div><div class="stat-label" data-i18n="stats.s2.label">现代化厂房</div></div>
+        <div class="stat-item"><div class="stat-number">100<span style="font-size:0.5em;">万+</span></div><div class="stat-label" data-i18n="stats.s3.label">年产能（套）</div></div>
+        <div class="stat-item"><div class="stat-number">51</div><div class="stat-label" data-i18n="stats.s4.label">国家专利</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Process Section
+       ======================================== -->
+  <section class="process section" id="process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="process-header reveal">
+        <span class="section-label" data-i18n="process.label">工艺制程</span>
+        <h2 id="process-title" class="section-title" data-i18n="process.title">8大工序 · 专利技术</h2>
+        <p class="section-desc" data-i18n="process.desc">从原料筛选到成品包装，每一步都坚持严苛标准。自主研发PMMA超级人造花岗石技术，确保产品性能卓越。</p>
+      </div>
+      <div class="process-timeline reveal-stagger">
+        <div class="process-step"><div class="process-step-number">01</div><div class="process-step-content"><h3 data-i18n="process.step1.title">精选原料</h3><p data-i18n="process.step1.desc">80-92%高纯度石英砂搭配食品级树脂，严格检测SiO₂含量与粒度分布。</p></div></div>
+        <div class="process-step"><div class="process-step-number">02</div><div class="process-step-content"><h3 data-i18n="process.step2.title">科学配料</h3><p data-i18n="process.step2.desc">石英砂、树脂、颜料按精确比例混合，电脑控制配料系统误差&lt;0.1%。</p></div></div>
+        <div class="process-step"><div class="process-step-number">03</div><div class="process-step-content"><h3 data-i18n="process.step3.title">真空压制</h3><p data-i18n="process.step3.desc">模具内真空环境高压成型，排除气泡，确保坯体致密度与强度。</p></div></div>
+        <div class="process-step"><div class="process-step-number">04</div><div class="process-step-content"><h3 data-i18n="process.step4.title">恒温固化</h3><p data-i18n="process.step4.desc">恒温恒湿车间48小时阶梯式升温固化，提升硬度与尺寸稳定性。</p></div></div>
+        <div class="process-step"><div class="process-step-number">05</div><div class="process-step-content"><h3 data-i18n="process.step5.title">CNC 精加工</h3><p data-i18n="process.step5.desc">意大利进口CNC设备进行切割、钻孔、磨边，精度达±0.5mm。</p></div></div>
+        <div class="process-step"><div class="process-step-number">06</div><div class="process-step-content"><h3 data-i18n="process.step6.title">多道抛光</h3><p data-i18n="process.step6.desc">从粗磨到精抛5道工序，表面光泽度达85°以上，触感温润。</p></div></div>
+        <div class="process-step"><div class="process-step-number">07</div><div class="process-step-content"><h3 data-i18n="process.step7.title">质量检测</h3><p data-i18n="process.step7.desc">逐件进行外观检查、尺寸测量、抗冲击、耐高温等12项检测。</p></div></div>
+        <div class="process-step"><div class="process-step-number">08</div><div class="process-step-content"><h3 data-i18n="process.step8.title">专业包装</h3><p data-i18n="process.step8.desc">定制珍珠棉+加厚纸箱+木架加固，确保长途运输零破损。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Certifications
+       ======================================== -->
+  <section class="certs section" id="certs" aria-labelledby="certs-title">
+    <div class="container">
+      <div class="certs-header reveal">
+        <span class="section-label" data-i18n="certs.label">资质认证</span>
+        <h2 id="certs-title" class="section-title" data-i18n="certs.title">国际认证 · 出口品质</h2>
+        <p class="section-desc" data-i18n="certs.desc">产品通过多项国际权威认证，直接供应欧美30+国家，跨境资质齐全。</p>
+      </div>
+      <div class="certs-grid reveal">
+        <div class="cert-card"><div class="cert-icon">ISO</div><div class="cert-info"><h4 data-i18n="certs.c1.name">ISO 认证</h4><p data-i18n="certs.c1.desc">质量管理体系认证</p></div></div>
+        <div class="cert-card"><div class="cert-icon">CE</div><div class="cert-info"><h4 data-i18n="certs.c2.name">CE 认证</h4><p data-i18n="certs.c2.desc">欧盟市场准入标准</p></div></div>
+        <div class="cert-card"><div class="cert-icon">FDA</div><div class="cert-info"><h4 data-i18n="certs.c3.name">FDA 认证</h4><p data-i18n="certs.c3.desc">美国食品药品安全标准</p></div></div>
+        <div class="cert-card"><div class="cert-icon">cUPC</div><div class="cert-info"><h4 data-i18n="certs.c4.name">cUPC 认证</h4><p data-i18n="certs.c4.desc">北美卫浴产品权威认证</p></div></div>
+        <div class="cert-card"><div class="cert-icon" style="font-size:0.7rem;">PATENT</div><div class="cert-info"><h4 data-i18n="certs.c5.name">51项专利</h4><p data-i18n="certs.c5.desc">自主研发技术专利</p></div></div>
+        <div class="cert-card"><div class="cert-icon">SGS</div><div class="cert-info"><h4 data-i18n="certs.c6.name">SGS 检测</h4><p data-i18n="certs.c6.desc">第三方权威质量检测</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       CTA / Contact
+       ======================================== -->
+  <section class="cta section" id="cta" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <span class="section-label" data-i18n="cta.label">合作咨询</span>
+        <h2 id="cta-title" class="cta-title" data-i18n="cta.title">打造您的专属石英石厨卫方案</h2>
+        <p class="cta-desc" data-i18n="cta.desc">无论是批量采购、OEM定制还是新品开发，我们的专业团队都将为您提供一站式解决方案。欢迎来厂参观洽谈。</p>
+        <div class="cta-actions">
+          <a href="mailto:info@moosun-sink.com" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span data-i18n="cta.btnEmail">发送询价邮件</span>
+          </a>
+          <a href="tel:+86-13392819007" class="btn btn-outline">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span data-i18n="cta.btnPhone">电话咨询</span>
+          </a>
+        </div>
+        <div class="cta-contact-info">
+          <span class="cta-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@moosun-sink.com</span>
+          <span class="cta-contact-item" data-i18n="cta.contactPerson">联系人：余先生 13392819007</span>
+          <span class="cta-contact-item" data-i18n="cta.address">湖北省黄梅县小池镇吴楚大道临港工业区4888号</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="color:#fff;">
+            <span class="nav-logo-icon" style="background:var(--color-accent);" data-i18n="common.brandShort">沐辰</span>
+            <span data-i18n="common.brand">沐辰 MOOSUN</span>
+          </div>
+          <p data-i18n="footer.desc">沐辰（MOOSUN）洁具有限公司，湖北最大石英石厨卫工厂。占地166亩、厂房12万㎡、年产100万套+。51项专利技术，CE/FDA/cUPC/ISO认证。</p>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.col1Title">产品系列</h4>
+          <a href="#products" data-i18n="footer.col1.l1">石英石一体盆</a>
+          <a href="#products" data-i18n="footer.col1.l2">石英石台下盆</a>
+          <a href="#products" data-i18n="footer.col1.l3">石英石厨房水槽</a>
+          <a href="#products" data-i18n="footer.col1.l4">石英石洗衣槽</a>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.col2Title">关于我们</h4>
+          <a href="#factory" data-i18n="footer.col2.l1">工厂介绍</a>
+          <a href="#process" data-i18n="footer.col2.l2">生产工艺</a>
+          <a href="#certs" data-i18n="footer.col2.l3">资质认证</a>
+          <a href="#cta" data-i18n="footer.col2.l4">联系我们</a>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.col3Title">服务支持</h4>
+          <a href="#cta" data-i18n="footer.col3.l1">OEM/ODM 定制</a>
+          <a href="#cta" data-i18n="footer.col3.l2">技术咨询</a>
+          <a href="#cta" data-i18n="footer.col3.l3">售后服务</a>
+          <a href="#cta" data-i18n="footer.col3.l4">索取样品</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 湖北沐辰(MOOSUN)洁具有限公司. All rights reserved.</span>
+        <span data-i18n="footer.icp">鄂ICP备XXXXXXXX号-1</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js" defer></script>
+  <script>
+    'use strict';
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    function updateNavbar() { if (window.scrollY > 10) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); }
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+    function openMenu() { menuOpen = true; mobileMenu.classList.add('open'); menuBtn.setAttribute('aria-expanded','true'); menuBtn.setAttribute('aria-label', window.I18N ? I18N.t('nav.menuClose') : '关闭菜单'); mobileMenu.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { menuOpen = false; mobileMenu.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label', window.I18N ? I18N.t('nav.menuOpen') : '打开菜单'); mobileMenu.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; }
+    menuBtn.addEventListener('click', () => { menuOpen ? closeMenu() : openMenu(); });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) { closeMenu(); menuBtn.focus(); } });
+
+    // Language switchers
+    function setupLang() {
+      const ds = document.getElementById('langSwitcher');
+      const ms = document.getElementById('langSwitcherMobile');
+      function onChange(e) {
+        const lang = e.target.value;
+        if (window.I18N && lang !== I18N.current) I18N.setLang(lang).then(() => {
+          if (ds) ds.value = lang;
+          if (ms) ms.value = lang;
+        });
+      }
+      if (ds) ds.addEventListener('change', onChange);
+      if (ms) ms.addEventListener('change', onChange);
+    }
+    if (window.I18N) setupLang(); else document.addEventListener('DOMContentLoaded', setupLang);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); if (!entry.target.classList.contains('reveal-stagger')) observer.unobserve(entry.target); } });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+    // Nav scroll effects
+    let ticking = false;
+    window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(() => { updateNavbar(); ticking = false; }); ticking = true; } }, { passive: true });
+
+    // Active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+      navLinks.forEach(l => { l.classList.remove('active'); if (l.getAttribute('href') === '#' + current) l.classList.add('active'); });
+    }
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+    updateNavbar();
+  </script>
+</body>
+</html>
