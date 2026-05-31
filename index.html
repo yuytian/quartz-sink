@@ -330,6 +330,30 @@
     [dir="rtl"] .footer-brand p { text-align: right; }
 
     /* ========================================
+       Floating Contact Button + QR Popup
+       ======================================== */
+    .kf-float-btn { position: fixed; right: 20px; top: 28%; z-index: var(--z-overlay); width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); cursor: pointer; transition: transform var(--transition-fast), box-shadow var(--transition-fast); animation: kf-pulse 2.5s infinite; }
+    .kf-float-btn:hover { transform: scale(1.08); box-shadow: var(--shadow-xl); animation: none; }
+    .kf-float-btn svg { width: 26px; height: 26px; }
+    @keyframes kf-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(161,98,7,0.4); } 50% { box-shadow: 0 0 0 12px rgba(161,98,7,0); } }
+
+    .kf-qr-overlay { display: none; position: fixed; inset: 0; z-index: var(--z-modal); background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); align-items: center; justify-content: center; }
+    .kf-qr-overlay.open { display: flex; }
+    .kf-qr-card { position: relative; background: #fff; border-radius: var(--radius-xl); padding: var(--space-8); text-align: center; box-shadow: var(--shadow-xl); max-width: 360px; width: 90%; animation: kf-fadeIn 0.25s ease-out; }
+    @keyframes kf-fadeIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+    .kf-qr-close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); transition: all var(--transition-fast); cursor: pointer; }
+    .kf-qr-close:hover { background: var(--color-surface-muted); color: var(--color-primary); }
+    .kf-qr-close svg { width: 20px; height: 20px; }
+    .kf-qr-card img { width: 220px; height: 220px; object-fit: contain; margin: var(--space-4) auto; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+    .kf-qr-title { font-size: var(--text-base); font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-1); }
+    .kf-qr-sub { font-size: var(--text-sm); color: var(--color-text-muted); }
+    @media (max-width: 640px) { .kf-float-btn { right: 12px; top: auto; bottom: 100px; width: 48px; height: 48px; } .kf-float-btn svg { width: 22px; height: 22px; } }
+
+    [dir="rtl"] .kf-float-btn { right: auto; left: 20px; }
+    [dir="rtl"] .kf-qr-close { right: auto; left: 12px; }
+    @media (max-width: 640px) { [dir="rtl"] .kf-float-btn { left: 12px; right: auto; } }
+
+    /* ========================================
        Reduced Motion & Print
        ======================================== */
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } .reveal, .reveal-stagger > * { opacity: 1; transform: none; transition: none; } }
@@ -337,6 +361,23 @@
   </style>
 </head>
 <body>
+
+  <!-- Floating Contact Button -->
+  <button class="kf-float-btn" id="kfFloatBtn" aria-label="联系客服" title="联系客服">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 9h8M8 13h6"/></svg>
+  </button>
+
+  <!-- QR Code Popup -->
+  <div class="kf-qr-overlay" id="kfQrOverlay" role="dialog" aria-modal="true" aria-label="微信二维码">
+    <div class="kf-qr-card">
+      <button class="kf-qr-close" id="kfQrClose" aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <p class="kf-qr-title">联系客服</p>
+      <p class="kf-qr-sub">微信扫一扫添加好友</p>
+      <img src="assets/wechat.jpg" alt="微信二维码" width="220" height="220">
+    </div>
+  </div>
 
   <!-- ========================================
        Navigation
@@ -748,6 +789,16 @@
     let menuOpen = false;
     function openMenu() { menuOpen = true; mobileMenu.classList.add('open'); menuBtn.setAttribute('aria-expanded','true'); menuBtn.setAttribute('aria-label', window.I18N ? I18N.t('nav.menuClose') : '关闭菜单'); mobileMenu.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
     function closeMenu() { menuOpen = false; mobileMenu.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label', window.I18N ? I18N.t('nav.menuOpen') : '打开菜单'); mobileMenu.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; }
+    // --- Floating QR Contact ---
+    const kfBtn = document.getElementById('kfFloatBtn');
+    const kfOverlay = document.getElementById('kfQrOverlay');
+    const kfClose = document.getElementById('kfQrClose');
+
+    kfBtn.addEventListener('click', () => { kfOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    kfClose.addEventListener('click', () => { kfOverlay.classList.remove('open'); document.body.style.overflow = ''; });
+    kfOverlay.addEventListener('click', (e) => { if (e.target === kfOverlay) { kfOverlay.classList.remove('open'); document.body.style.overflow = ''; } });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && kfOverlay.classList.contains('open')) { kfOverlay.classList.remove('open'); document.body.style.overflow = ''; } });
+
     menuBtn.addEventListener('click', () => { menuOpen ? closeMenu() : openMenu(); });
     mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) { closeMenu(); menuBtn.focus(); } });
