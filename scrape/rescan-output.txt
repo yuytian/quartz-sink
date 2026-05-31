@@ -1,0 +1,7 @@
+  Error: 'gbk' codec can't encode character '\ufffd' in position 19: illegal multibyte sequence
+  Error: 'gbk' codec can't encode character '\ufffd' in position 20: illegal multibyte sequence
+  Error: 'gbk' codec can't encode character '\ufffd' in position 20: illegal multibyte sequence
+  Error: 'gbk' codec can't encode character '\ufffd' in position 20: illegal multibyte sequence
+  Error: 'gbk' codec can't encode character '\ufffd' in position 25: illegal multibyte sequence
+
+=== TOTAL products across all categories: 0 ===

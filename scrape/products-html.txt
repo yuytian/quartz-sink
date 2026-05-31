@@ -1,0 +1,297 @@
+      <div class="prod-tabs reveal">
+        <button class="prod-tab active" data-cat="05">浴室柜盆</button>
+        <button class="prod-tab" data-cat="06">厨房水槽</button>
+        <button class="prod-tab" data-cat="07">洗衣槽</button>
+      </div>
+
+      <!-- Category 05: 浴室柜盆 (12 products) -->
+      <div class="product-grid active" id="cat-05">
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241419242566.jpg" alt="MONDW 7648" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">MONDW 7648</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241148022732.jpg" alt="POLZ 8647" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">POLZ 8647</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241146449611.jpg" alt="POLDY 7646" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">POLDY 7646</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241405393337.jpg" alt="AMS 3018" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">AMS 3018</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241404462069.jpg" alt="MONDXX 7246" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">MONDXX 7246</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241403525739.jpg" alt="MONDX-GB7647D" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">MONDX-GB7647D</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208271746288779.jpg" alt="MONDWD 7648" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">MONDWD 7648</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208231719552585.jpg" alt="MONDX7045" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">MONDX7045</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241801511007.jpg" alt="AMSSA-3019A" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">AMSSA-3019A</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241535280740.jpg" alt="MONDX 7845" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">MONDX 7845</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241535084946.jpg" alt="MONDW 9050" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">MONDW 9050</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208241534501240.jpg" alt="MONDW 7845" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">MONDW 7845</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Category 06: 厨房水槽 (12 products) -->
+      <div class="product-grid" id="cat-06">
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/20229138285.jpg" alt="HW 8646" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">HW 8646</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202209131032416285.jpg" alt="AEG 5041" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">AEG 5041</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301347429572.jpg" alt="Y 9001" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">Y 9001</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301347201667.jpg" alt="SS 8045" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">SS 8045</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301346522210.jpg" alt="HAN 1050" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">HAN 1050</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301346301971.jpg" alt="hjj52000" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">hjj52000</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301351023354.jpg" alt="HAN 1265" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">HAN 1265</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301207131616.jpg" alt="HAN 585" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">HAN 585</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301206551964.jpg" alt="ATH 6045B" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">ATH 6045B</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301206008663.jpg" alt="ATH 6045A" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">ATH 6045A</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/20229133835.jpg" alt="AEG 430" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">AEG 430</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/20229132570.jpg" alt="AEG 400" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">AEG 400</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Category 07: 洗衣槽 (12 products) -->
+      <div class="product-grid" id="cat-07">
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301459553497.jpg" alt="XPQ 1565-R" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPQ 1565-R</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301459307350.jpg" alt="XPQ 1565-L" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPQ 1565-L</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301459054017.jpg" alt="XPQ 1465-R" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPQ 1465-R</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301458268717.jpg" alt="XPQ 1465-L" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPQ 1465-L</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301457459716.jpg" alt="XPQ1263-R" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPQ1263-R</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301457182831.jpg" alt="XPQ 1263-L" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPQ 1263-L</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301456491255.jpg" alt="XPJ 110" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPJ 110</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301456151307.jpg" alt="XPC 1565Z-R" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPC 1565Z-R</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301455419677.jpg" alt="XPC 1565Y-L" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPC 1565Y-L</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301455109066.jpg" alt="XPC 1465ZC-L" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPC 1465ZC-L</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-image">
+            <img src="images/products/202208301454459879.jpg" alt="XPC 1465YC-R" loading="lazy" width="400" height="300">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-model">XPC 1465YC-R</p>
+          </div>
+        </article>
+      </div>
